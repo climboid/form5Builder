@@ -1,0 +1,291 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta name="description" content="Free HTML5 Form Builder" />
+<meta name="keywords" content="HTML,CSS,XML,JavaScript" />
+<meta name="author" content="Oscar Villarreal" />
+
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+<link rel="stylesheet" type="text/css" href="css/bootstrap-responsive.css" />
+<title>Form 5 Builder</title>
+<style>
+	body{padding-top:60px;}
+  .actionElements li{margin:1em 0; list-style:none;}
+  .hero-unit{padding:1em 0;}
+  .template, .editRowTemplates{display:none;}
+  .finalForm{margin-left:0;}
+  .finalForm li{list-style:none; padding:0.5em 0; border-bottom:1px dashed #ccc;}
+  .finalForm li:hover{cursor:move;}
+  .ui-state-highlight{height:40px;}
+  .modal-header h3{text-transform:capitalize;}
+  input::-webkit-input-placeholder {
+      color:    #ddd;
+  }
+  input:-moz-placeholder {
+      color:    #efefef;
+  }
+</style>
+
+<!-- drag and drop jquery options -->
+<link rel="stylesheet" href="css/jqueryUI/jquery.ui.all.css">
+
+</head>
+
+<body>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#">Form 5 Builder</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li class="active"><a href="#">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="editRowTemplates">
+        <div id="inputEditTemplate" class="row">
+          <div class="span5">
+            <div class="control-group">
+            <label class="control-label" for="input01">Title or Question</label>
+            <div class="controls">
+              <input type="text" class="input-xlarge">
+            </div>
+          </div>
+          </div>
+        </div>
+
+        <!-- modal edit text area template -->
+        <div id="textAreaEditTemplate" class="row">
+          <div class="span5">
+            <div class="control-group">
+            <label class="control-label" for="input01">Title or Question</label>
+            <div class="controls">
+              <input type="text" class="input-xlarge">
+            </div>
+          </div>
+          </div>
+        </div>
+
+        <!-- modal edit checkboxes template -->
+        <div id="checkBoxCreateTemplate" class="row">
+          <div class="span5">
+            <div class="control-group"> 
+            <div class="controls">
+              <input type="text" class="input-xlarge" id="firstCheckboxes">
+              <p class="help-block">Comma separate values to create multiple checkboxes</p>
+            </div>
+          </div>
+          </div>
+        </div>
+
+        <!-- modal edit radiobuttons template -->
+        <div id="radiosCreateTemplate" class="row">
+          <div class="span5">
+            <div class="control-group"> 
+            <div class="controls">
+              <input type="text" class="input-xlarge" id="firstRadios">
+              <p class="help-block">Comma separate values to create multiple checkboxes</p>
+            </div>
+          </div>
+          </div>
+        </div>
+
+
+
+
+
+      </div>
+
+      <div class="row">
+          <div class="span3 hero-unit">
+            <ul class="actionElements">
+              <li type="inputRowTemplate"><a class="btn">Input Box</a></li>
+              <li type="textAreaTemplate"><a class="btn">Text Box</a></li>
+              <li type="checkboxTemplate"><a class="btn">Checkboxes</a></li>
+              <li type="radioTemplate"><a class="btn">Radio Buttons</a></li>
+              <li type="submitTemplate"><a class="btn">Submit Buton</a></li>
+              <li type="submitAndCancelTemplate"><a class="btn">Submit and Cancel Butons</a></li>
+              <li type="buttonTemplate"><a class="btn">Button</a></li>
+            </ul>
+          </div>
+          <div class="span9">
+            <ul id="formTemplates" class="template" >
+                <li id="inputRowTemplate">
+                  <div class="row">
+                    <div class="span6">
+                      <h3>What is your name?</h3>
+                      <input type="text"/>
+                    </div>
+                    <div class="span2 actionsRow">
+                      <a class="btn btn-danger" href="#" title="Delete Row"><i class="icon-trash icon-white"></i></a>
+                      <a class="btn btn-primary launchModal" title="Edit Row"><i class="icon-edit icon-white"></i></a>
+                    </div>
+                  </div>
+                </li>
+                <li id="submitTemplate">
+                  <div class="row">
+                    <div class="span6">
+                      <button type="submit" class="btn btn-success">Submit</button>
+                    </div>
+                    <div class="span2 actionsRow">
+                      <a class="btn btn-danger" href="#" title="Delete Row"><i class="icon-trash icon-white"></i></a>
+                      <a class="btn btn-primary launchModal" title="Edit Row"><i class="icon-edit icon-white"></i></a>
+                    </div>
+                  </div>
+                </li>
+                <li id="buttonTemplate">
+                  <div class="row">
+                    <div class="span6">
+                      <button type="button" class="btn">Button</button>
+                    </div>
+                    <div class="span2 actionsRow">
+                      <a class="btn btn-danger" href="#" title="Delete Row"><i class="icon-trash icon-white"></i></a>
+                      <a class="btn btn-primary launchModal" title="Edit Row"><i class="icon-edit icon-white"></i></a>
+                    </div>
+                  </div>
+                </li>
+                <li id="submitAndCancelTemplate">
+                  <div class="row">
+                    <div class="span6">
+                      <button type="submit" class="btn btn-success">Submit</button>
+                      <button type="submit" class="btn ">Cancel</button>
+                    </div>
+                    <div class="span2 actionsRow">
+                      <a class="btn btn-danger" href="#" title="Delete Row"><i class="icon-trash icon-white"></i></a>
+                      <a class="btn btn-primary launchModal" title="Edit Row"><i class="icon-edit icon-white"></i></a>
+                    </div>
+                  </div>
+                </li>
+                <li id="textAreaTemplate">
+                  <div class="row">
+                    <div class="span6">
+                      <h3>Comments</h3>
+                      <textarea placeholder="type your comments in here"></textarea>
+                    </div>
+                    <div class="span2 actionsRow">
+                      <a class="btn btn-danger" href="#" title="Delete Row"><i class="icon-trash icon-white"></i></a>
+                      <a class="btn btn-primary launchModal" title="Edit Row"><i class="icon-edit icon-white"></i></a>
+                    </div>
+                  </div>
+                </li>
+                <li id="checkboxTemplate">
+                  <div class="row">
+                    <div class="span6">
+                      <h3>Select one option please</h3>
+                      <label class="checkbox">
+                        <input type="checkbox">
+                        <span class="txt">Option one</span>
+                      </label>
+                    </div>
+                    <div class="span2 actionsRow">
+                      <a class="btn btn-danger" href="#" title="Delete Row"><i class="icon-trash icon-white"></i></a>
+                      <a class="btn btn-primary launchModal" title="Edit Row"><i class="icon-edit icon-white"></i></a>
+                    </div>
+                  </div>
+                </li>
+                <li id="radioTemplate">
+                  <div class="row">
+                    <div class="span6">
+                      <h3>Select one option please</h3>
+                      <label class="radio">
+                        <input type="radio"/>
+                        <span class="txt">Option one</span>
+                      </label>
+                    </div>
+                    <div class="span2 actionsRow">
+                      <a class="btn btn-danger" href="#" title="Delete Row"><i class="icon-trash icon-white"></i></a>
+                      <a class="btn btn-primary launchModal" title="Edit Row"><i class="icon-edit icon-white"></i></a>
+                    </div>
+                  </div>
+                </li>
+            </ul>
+            <ul id="formContent" class="finalForm">
+
+            </ul>
+          </div>
+          <div class="row">
+                    <div class="span6 offset6">
+                      <button type="button" class="btn btn-warning">Preview form</button>
+                    </div>
+                  </div>
+      </div>
+
+
+    </div> <!-- /container -->
+
+  
+    
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/scripts.js"></script>
+    <script src="assets/js/bootstrap-modal.js"></script>
+    <script src="assets/js/bootstrap-transition.js"></script>
+
+
+    <!--
+   
+    <script src="assets/js/bootstrap-alert.js"></script>
+    
+    <script src="assets/js/bootstrap-dropdown.js"></script>
+    <script src="assets/js/bootstrap-scrollspy.js"></script>
+    <script src="assets/js/bootstrap-tab.js"></script>
+    <script src="assets/js/bootstrap-tooltip.js"></script>
+    <script src="assets/js/bootstrap-popover.js"></script>
+    <script src="assets/js/bootstrap-button.js"></script>
+    <script src="assets/js/bootstrap-collapse.js"></script>
+    <script src="assets/js/bootstrap-carousel.js"></script>
+    <script src="assets/js/bootstrap-typeahead.js"></script>
+-->
+
+
+  <!-- drag and drop jquery options -->
+  <script src="assets/js/jqueryUI/jquery-1.7.1.js"></script>
+  <script src="assets/js/jqueryUI/jquery.ui.core.js"></script>
+  <script src="assets/js/jqueryUI/jquery.ui.widget.js"></script>
+  <script src="assets/js/jqueryUI/jquery.ui.mouse.js"></script>
+  <script src="assets/js/jqueryUI/jquery.ui.sortable.js"></script>
+
+  <script>
+    $(function() {
+      $( "#formContent" ).sortable({
+        placeholder: "ui-state-highlight"
+      });
+      $( "#formContent" ).disableSelection();
+    });
+  </script>
+  
+<div class="modal fade" id="modalBox">
+  <div class="modal-header">
+    <a class="close" data-dismiss="modal">×</a>
+    <h3>Modal header</h3>
+  </div>
+  <div class="modal-body">
+    <p>One fine body…</p>
+  </div>
+  <div class="modal-footer">
+    <a href="#" class="btn btn-primary">Save changes</a>
+    <a href="#" class="btn">Close</a>
+  </div>
+</div>
+
+
+<div id="window-resizer-tooltip" style="display: none; "><a href="#" title="Edit settings" style="background-image: url(chrome-extension://kkelicaakdanhinjdeammmilcgefonfh/images/icon_19.png); "></a><span class="tooltipTitle">Window size: </span><span class="tooltipWidth" id="winWidth">1416</span> x <span class="tooltipHeight" id="winHeight">874</span><br><span class="tooltipTitle">Viewport size: </span><span class="tooltipWidth" id="vpWidth">1416</span> x <span class="tooltipHeight" id="vpHeight">577</span></div>
+</body>
+
+</html>
